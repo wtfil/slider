@@ -21,6 +21,7 @@ jQuery(function () {
       return match ? Number(match[1]) : 0;
     },
     logKey: function (e) {
+      var code = e.keyCode;
       if (!this._keyNum) {
         this._keyNum = false;
       }
@@ -28,15 +29,19 @@ jQuery(function () {
        * 13 enter
        * 33 page up
        * 34 page down
+       * 37 left
+       * 38 up
+       * 39 right
+       * 40 down
        * 48-58 numbers
        */
-      if (e.keyCode >= 48 && e.keyCode <= 58) {
-        this._keyNum = this._keyNum * 10 + (e.keyCode - 48);
-      } else if (e.keyCode === 13) {
+      if (code >= 48 && code <= 58) {
+        this._keyNum = this._keyNum * 10 + (code - 48);
+      } else if (code === 13) {
         this.changeHash();
-      } else if (e.keyCode === 34){
+      } else if (code === 34 || code === 39 || code === 40) {
         this.changeHash(+1);
-      } else if (e.keyCode === 33) {
+      } else if (code === 33 || code === 37 || code === 38) {
         this.changeHash(-1);
       }
     },
