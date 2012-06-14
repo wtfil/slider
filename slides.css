@@ -1,0 +1,11 @@
+.slider{
+  margin-top: 5%;
+}
+.slider .holder{
+  height: 350px;
+  overflow: hidden;
+}
+.slider .slide{
+  width: 100%;
+  height: 100%;
+}
